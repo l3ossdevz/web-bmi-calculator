@@ -17,8 +17,16 @@
   margin-bottom: 10px;
 }
 .button-calculateBmi {
-  background-color: aqua;
+  background-color: lightgreen;
   color: black;
+  height: 40px;
+  margin-right: 5px;
+}
+.button-resetBmi {
+  background-color: lightgray;
+  color: black;
+  height: 40px;
+  margin-left: 5px;
 }
 
 label,

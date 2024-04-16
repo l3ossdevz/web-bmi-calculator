@@ -14,6 +14,15 @@ function App() {
     setBmi(bmi);
   };
 
+  const resetBMI = () => {
+    if (weightRef.current && heightRef.current) {
+      weightRef.current.value = "";
+      heightRef.current.value = "";
+      /* Reset BMI value to 0 */
+      setBmi(0);
+    }
+  };
+
   const checkBmiResult = () => {
     if (bmi === 0) return "-";
     switch (true) {
@@ -25,8 +34,10 @@ function App() {
         return "ท้วม / โรคอ้วนระดับ 1";
       case bmi < 29.9:
         return "อ้วน / โรคอ้วนระดับ 2";
-      default:
+      case bmi >= 30:
         return "อ้วนมาก / โรคอ้วนระดับ 3";
+      default:
+        return "-";
     }
   };
 
@@ -65,18 +76,35 @@ function App() {
             autoComplete="off"
           />
         </div>
-        <div className="space-bottom">
-          <button
-            className="button-calculateBmi"
-            type="button"
-            onClick={calculateBMI}
-          >
-            คำนวนค่า BMI
-          </button>
+        <div
+          className="space-bottom"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <div>
+            <button
+              className="button-calculateBmi"
+              type="button"
+              onClick={calculateBMI}
+            >
+              คำนวนค่า BMI
+            </button>
+          </div>
+          <div>
+            <button
+              className="button-resetBmi"
+              type="button"
+              onClick={resetBMI}
+            >
+              คือค่า BMI
+            </button>
+          </div>
         </div>
 
         <div className="space-bottom">
-          <p>ค่า BMI คือ : {bmi.toFixed(2)}</p>
+          <p>ค่า BMI คือ : {bmi ? bmi.toFixed(2) : 0.0}</p>
           <p>
             ผลลัพธ์ : &nbsp;
             <span className={getBmiResultColor()}>{checkBmiResult()}</span>
