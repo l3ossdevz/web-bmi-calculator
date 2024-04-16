@@ -78,14 +78,8 @@ function App() {
             autoComplete="off"
           />
         </div>
-        <div
-          className="space-bottom"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <div>
+        <div className=" space-bottom ">
+          <div className="button">
             <button
               className="button-calculateBmi"
               type="button"
@@ -93,8 +87,6 @@ function App() {
             >
               คำนวนค่า BMI
             </button>
-          </div>
-          <div>
             <button
               className="button-resetBmi"
               type="button"
